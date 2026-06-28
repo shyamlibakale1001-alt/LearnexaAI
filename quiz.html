@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learnexa AI Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="quiz">
+    <main class="page-shell page-shell-narrow">
+      <div class="page-controls">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle color mode"
+        >
+          Light mode
+        </button>
+      </div>
+      <nav class="app-nav" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="flashcards.html">Flashcards</a>
+        <a href="quiz.html" class="active">Quiz</a>
+        <a href="chat.html">Chat</a>
+      </nav>
+
+      <section class="quiz-shell">
+        <div class="split-header">
+          <div>
+            <p class="eyebrow">Quiz</p>
+            <h1>Test your knowledge with an immersive quiz journey.</h1>
+            <p class="hero-subtitle">
+              Practice mixed question types, review answers, and unlock polished
+              results.
+            </p>
+          </div>
+          <div class="quiz-progress">
+            <span id="quizProgress">Question 1 of 1</span>
+            <span id="quizScore">Score: 0</span>
+          </div>
+        </div>
+
+        <div class="quiz-topbar">
+          <div class="quiz-pill-row">
+            <span id="questionCounter" class="quiz-pill">Question 1 of 1</span>
+            <span id="questionType" class="quiz-pill">Multiple Choice</span>
+            <span id="remainingCounter" class="quiz-pill">0 remaining</span>
+          </div>
+          <div class="quiz-progress-bar-shell">
+            <div id="quizProgressBar" class="quiz-progress-bar"></div>
+          </div>
+        </div>
+
+        <article id="quizCard" class="quiz-card">
+          <div class="quiz-question">
+            <p id="quizQuestion"></p>
+          </div>
+          <div id="quizOptions" class="quiz-options"></div>
+          <div id="quizFeedback" class="quiz-feedback" aria-live="polite"></div>
+          <div class="flashcard-controls">
+            <button id="prevQuiz" class="feature-button" type="button">
+              Previous
+            </button>
+            <button id="nextQuiz" class="feature-button" type="button">
+              Next
+            </button>
+          </div>
+        </article>
+
+        <div id="quizResults" class="quiz-results hidden"></div>
+        <div id="quizReview" class="quiz-review hidden"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

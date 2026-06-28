@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learnexa AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="dashboard">
+    <main class="page-shell">
+      <div class="page-controls">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle color mode"
+        >
+          Light mode
+        </button>
+      </div>
+      <nav class="app-nav" aria-label="Primary navigation">
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="flashcards.html">Flashcards</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="chat.html">Chat</a>
+      </nav>
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">Learnexa AI Study Pack</p>
+          <h1>Welcome to Learnexa AI, <span id="userName">...</span> 👋</h1>
+          <p class="hero-subtitle">Here is your AI-generated Study Pack.</p>
+        </div>
+
+        <article class="info-card" aria-label="Study pack details">
+          <div class="info-row">
+            <span class="info-label">Uploaded File</span>
+            <strong id="fileName">...</strong>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Generated</span>
+            <strong id="generatedAt">...</strong>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Flashcards</span>
+            <strong id="flashcardCount">...</strong>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Quiz Questions</span>
+            <strong id="quizCount">...</strong>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Reading Time</span>
+            <strong id="readingTime">...</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="feature-grid" aria-label="Study pack features">
+        <article class="feature-card">
+          <div class="feature-title">
+            <span class="feature-icon">📄</span>
+            <div>
+              <h2>Summary</h2>
+              <p>A concise AI-generated summary of your uploaded notes.</p>
+            </div>
+          </div>
+          <button
+            id="summaryButton"
+            class="feature-button"
+            type="button"
+            onclick="openSummary()"
+          >
+            Open Summary
+          </button>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-title">
+            <span class="feature-icon">📝</span>
+            <div>
+              <h2>Smart Notes</h2>
+              <p>Important concepts, definitions and key highlights.</p>
+            </div>
+          </div>
+          <button
+            id="notesButton"
+            class="feature-button"
+            type="button"
+            onclick="openNotes()"
+          >
+            View Notes
+          </button>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-title">
+            <span class="feature-icon">🧠</span>
+            <div>
+              <h2>Flashcards</h2>
+              <p>Interactive flashcards for quick revision.</p>
+            </div>
+          </div>
+          <button
+            id="flashcardsButton"
+            class="feature-button"
+            type="button"
+            onclick="goToFlashcards()"
+          >
+            Start Revision
+          </button>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-title">
+            <span class="feature-icon">❓</span>
+            <div>
+              <h2>Quiz</h2>
+              <p>Test your understanding with AI-generated MCQs.</p>
+            </div>
+          </div>
+          <button
+            id="quizButton"
+            class="feature-button"
+            type="button"
+            onclick="goToQuiz()"
+          >
+            Start Quiz
+          </button>
+        </article>
+      </section>
+
+      <section class="assistant-section">
+        <article class="assistant-card">
+          <div class="assistant-top">
+            <span class="assistant-icon">🤖</span>
+            <div>
+              <h2>AI Doubt Solver</h2>
+              <p>
+                Ask any question regarding your uploaded notes. The AI assistant
+                will answer using only the uploaded study material.
+              </p>
+            </div>
+          </div>
+          <div class="assistant-body">
+            <div
+              class="assistant-preview"
+              role="button"
+              tabindex="0"
+              onclick="goToChat()"
+              onkeydown="
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  goToChat();
+                }
+              "
+            >
+              <div class="assistant-preview-header">
+                <div class="assistant-preview-avatar">🤖</div>
+                <div>
+                  <strong>AI Study Assistant</strong>
+                  <p>Online now</p>
+                </div>
+              </div>
+              <div class="assistant-preview-body-grid">
+                <div class="chat-message assistant assistant-preview-bubble">
+                  <p>
+                    Hi! I'm your AI Study Assistant. Ask me anything about your
+                    study material.
+                  </p>
+                </div>
+                <div
+                  class="chat-message user assistant-preview-bubble assistant-preview-bubble-user"
+                >
+                  <p>Explain this chapter in simple words</p>
+                </div>
+              </div>
+              <div class="assistant-preview-input" aria-hidden="true">
+                <span class="assistant-preview-placeholder"
+                  >Ask a question about your notes...</span
+                >
+              </div>
+              <div class="assistant-preview-suggestions">
+                <button
+                  class="chat-preview-chip"
+                  type="button"
+                  onclick="
+                    event.stopPropagation();
+                    goToChat('Explain this chapter in simple words');
+                  "
+                >
+                  Explain this chapter in simple words
+                </button>
+                <button
+                  class="chat-preview-chip"
+                  type="button"
+                  onclick="
+                    event.stopPropagation();
+                    goToChat('Generate 5 more MCQs');
+                  "
+                >
+                  Generate 5 more MCQs
+                </button>
+                <button
+                  class="chat-preview-chip"
+                  type="button"
+                  onclick="
+                    event.stopPropagation();
+                    goToChat('Summarize this topic');
+                  "
+                >
+                  Summarize this topic
+                </button>
+                <button
+                  class="chat-preview-chip"
+                  type="button"
+                  onclick="
+                    event.stopPropagation();
+                    goToChat('What is the difference between X and Y?');
+                  "
+                >
+                  What is the difference between X and Y?
+                </button>
+              </div>
+            </div>
+            <button class="assistant-button" type="button" onclick="goToChat()">
+              Open AI Assistant
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="download-section">
+        <article class="download-card">
+          <div>
+            <h2>Download Whole Study Pack</h2>
+            <p>
+              Get the complete pack in one polished file for review and offline
+              study.
+            </p>
+          </div>
+          <button
+            id="completePackButton"
+            class="download-button"
+            type="button"
+            onclick="downloadCompletePack()"
+          >
+            Download Complete Study Pack
+          </button>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

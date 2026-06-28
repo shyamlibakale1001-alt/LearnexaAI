@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learnexa AI Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="chat">
+    <main class="page-shell page-shell-narrow">
+      <div class="page-controls">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle color mode"
+        >
+          Light mode
+        </button>
+      </div>
+      <nav class="app-nav" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="flashcards.html">Flashcards</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="chat.html" class="active">Chat</a>
+      </nav>
+
+      <section class="chat-shell">
+        <div class="split-header">
+          <div>
+            <p class="eyebrow">AI Doubt Solver</p>
+            <h1>Ask questions and get thoughtful answers.</h1>
+            <p class="hero-subtitle">
+              Ask any questions related to the uploaded notes.
+            </p>
+          </div>
+        </div>
+
+        <article class="chat-panel">
+          <div id="chatHistory" class="chat-history" aria-live="polite"></div>
+          <form id="chatForm" class="chat-form">
+            <textarea
+              id="chatInput"
+              class="chat-input"
+              rows="1"
+              placeholder="Ask a question about your notes..."
+              required
+            ></textarea>
+            <button class="feature-button" type="submit">Send</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

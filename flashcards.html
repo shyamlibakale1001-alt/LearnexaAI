@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learnexa AI Flashcards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="flashcards">
+    <main class="page-shell page-shell-narrow">
+      <div class="page-controls">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle color mode"
+        >
+          Light mode
+        </button>
+      </div>
+      <nav class="app-nav" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="flashcards.html" class="active">Flashcards</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="chat.html">Chat</a>
+      </nav>
+
+      <section class="flashcard-shell">
+        <div class="split-header">
+          <div>
+            <p class="eyebrow">Flashcards</p>
+            <h1>Practice your material with one card at a time.</h1>
+            <p class="hero-subtitle">
+              Tap the card to flip it, then use navigation and shuffle for
+              active recall.
+            </p>
+          </div>
+          <div class="flashcard-meta">
+            <span id="flashcardProgress">Card 1 of 1</span>
+            <div class="flashcard-progress-bar-shell">
+              <div
+                id="flashcardProgressBar"
+                class="flashcard-progress-bar"
+              ></div>
+            </div>
+            <button id="shuffleButton" class="ghost-button" type="button">
+              Shuffle
+            </button>
+          </div>
+        </div>
+
+        <article class="flashcard-panel">
+          <div
+            id="flashcardCard"
+            class="flashcard-card"
+            tabindex="0"
+            role="button"
+            aria-label="Flashcard. Press enter or space to flip."
+          >
+            <div class="flashcard-face flashcard-front">
+              <p id="cardQuestion"></p>
+            </div>
+            <div class="flashcard-face flashcard-back">
+              <p id="cardAnswer"></p>
+            </div>
+          </div>
+
+          <div class="flashcard-controls">
+            <button id="prevFlashcard" class="feature-button" type="button">
+              Previous
+            </button>
+            <button id="nextFlashcard" class="feature-button" type="button">
+              Next
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
